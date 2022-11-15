@@ -13,12 +13,14 @@
 <body>
 
     <p>안드로이드 자바스크립트 인터페이스</p>
-    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+    <input type="button" value="Say hello" onClick="scanDevice()" />
     
     <script type="text/javascript">
-        function showAndroidToast(toast) {
-            Android.showToast(toast);
+        
+        function scanDevice() {
+            Android.scanDevice();
         }
+
     </script>
 
 </body>
