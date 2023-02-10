@@ -13,13 +13,54 @@
 <body>
 
     <p>안드로이드 자바스크립트 인터페이스</p>
-    <input type="button" value="Scan Device" onClick="scanDevice()" />
+   
+    <input type="button" value="Scan Device" onClick="gopage()" />
     
     <script type="text/javascript">
         
         function scanDevice() {
             Android.scanDevice();
         }
+
+        const deviceId = null;
+
+        function setDeviceId(){
+            deviceId = Android.setDeviceId();
+            let x = document.getElementsByClassName("deviceId");
+            x.innerText = deviceId;
+        }
+
+        function gopage() {
+            // 자바스크립트로 링크 이동하기 : location.href
+            // location.href = "device_register.html";
+            // form에서는 페이지 이동 전에 데이터가 들어있는지 확인이 번거롭다.
+            // 데이터를 확인하고 그 데이터를 가지고 링크를 이동하기 위해서는 
+            // 자바스크립트에서 데이터 확인을 거치고 직접 보내주는 것이 좋다
+
+            gopage2();
+
+
+        };
+
+        function gopage2 () {
+            var form = document.createElement('form');
+            var objs;
+            objs = document.createElement('input');
+            // objs.setAttribute('type', 'hidden');
+            // objs.setAttribute('name', 'name');
+            //objs.setAttribute('value', value);
+            form.appendChild(objs);
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', "http://127.0.0.1:5500/android/JavascriptInterface_sample/demo-web/device_register.html");
+            document.body.appendChild(form);
+
+            form.submit();
+
+        };
+
+
+
+
 
     </script>
 
